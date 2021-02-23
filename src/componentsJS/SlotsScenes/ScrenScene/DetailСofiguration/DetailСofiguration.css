@@ -1,0 +1,12 @@
+.con_sub{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid saddlebrown;
+    height:"30px";
+    justify-content:"flex-start" 
+}
+.table_scrin{
+    margin: 40px;
+}
