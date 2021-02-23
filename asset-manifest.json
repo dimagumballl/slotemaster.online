@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/slotemaster.online/static/css/main.8bba4fd4.chunk.css",
+    "main.js": "/slotemaster.online/static/js/main.c7bdaf2e.chunk.js",
+    "main.js.map": "/slotemaster.online/static/js/main.c7bdaf2e.chunk.js.map",
+    "runtime-main.js": "/slotemaster.online/static/js/runtime-main.90467ab8.js",
+    "runtime-main.js.map": "/slotemaster.online/static/js/runtime-main.90467ab8.js.map",
+    "static/js/2.275bdcfe.chunk.js": "/slotemaster.online/static/js/2.275bdcfe.chunk.js",
+    "static/js/2.275bdcfe.chunk.js.map": "/slotemaster.online/static/js/2.275bdcfe.chunk.js.map",
+    "static/js/3.3c51ebe5.chunk.js": "/slotemaster.online/static/js/3.3c51ebe5.chunk.js",
+    "static/js/3.3c51ebe5.chunk.js.map": "/slotemaster.online/static/js/3.3c51ebe5.chunk.js.map",
+    "index.html": "/slotemaster.online/index.html",
+    "static/css/main.8bba4fd4.chunk.css.map": "/slotemaster.online/static/css/main.8bba4fd4.chunk.css.map",
+    "static/js/2.275bdcfe.chunk.js.LICENSE.txt": "/slotemaster.online/static/js/2.275bdcfe.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.90467ab8.js",
+    "static/js/2.275bdcfe.chunk.js",
+    "static/css/main.8bba4fd4.chunk.css",
+    "static/js/main.c7bdaf2e.chunk.js"
+  ]
+}
