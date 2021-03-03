@@ -216,11 +216,12 @@ function WorkWithReels(state, action){
             }
             if(i!=keys(reels).length){
                 for(let a = 0;a<keys(reels).length-i;a++){
-                    ArrNoKay[a]=keys(reels)[a]
+                    ArrNoKay[a]=Number(keys(reels)[a])
                 }
                 let las = ArrNoKay.length-1, start = true, k=ArrNoKay.length-2
                 if(ArrNoKay.length!=1&&ArrNoKay.length!=2){
                     while(start){
+                        
                         ArrNoKay[las]++;
                         
                         if(ArrNoKay[las]>keys(reels).length){
@@ -228,31 +229,39 @@ function WorkWithReels(state, action){
                             
                             if((Number(ArrNoKay[las]-2)==Number(ArrNoKay[k]))){
                                 
-                                
+                               
                                 let start2 = true
                                 
                                 
                                 while(start2){
-                                    if(Number(ArrNoKay[k]-1)!=Number(ArrNoKay[k-1])){
-                                        
-                                        ArrNoKay[k-1]=Number(ArrNoKay[k-1])+1
-                                        for(let q = k, m=1;q<ArrNoKay.length;q++,m++){
+                                    if(ArrNoKay[k-1]!=undefined){
+                                        if(Number(ArrNoKay[k]-1)!=Number(ArrNoKay[k-1])){
+                                            let temp = Number(ArrNoKay[k-1])
                                             
-                                            ArrNoKay[q]=Number(ArrNoKay[k-1])+m
+                                            for(let q = k-1, m=1;q<ArrNoKay.length;q++,m++){
+                                                
+                                                ArrNoKay[q]=temp+m
+                                            }
+                                            
+                                            k=ArrNoKay.length-2
+                                            start2=!start2
                                         }
-                                        k=ArrNoKay.length-2
-                                        start2=!start2
+                                        else{
+                                           
+                                            k--
+                                            if(k<0){
+                                                start2=!start2
+                                                start=!start
+                                            }
+    
+                                        }
                                     }
                                     else{
-                                        k--
-                                        if(k<0){
-                                            start2=!start2
-                                            start=!start
-                                        }
-
+                                        start2=!start2
+                                        start=!start
                                     }
                                 }
-                                break
+                                
                             }
                             else{
                                 ArrNoKay[las]=Number(ArrNoKay[k])+2
@@ -263,9 +272,11 @@ function WorkWithReels(state, action){
                         }
                         
                     }
+                    
                 }
                 else if(ArrNoKay.length==1){
                     while(start){
+                        
                         ArrNoKay[las]++;
                         if(ArrNoKay[las]>keys(reels).length){
                             
@@ -276,6 +287,7 @@ function WorkWithReels(state, action){
                 }
                 else if(ArrNoKay.length==2){
                     while(start){
+                        
                         ArrNoKay[las]++;
                         if(ArrNoKay[las]>keys(reels).length)
                             if((Number(ArrNoKay[las]-2)==Number(ArrNoKay[k])))
@@ -287,9 +299,9 @@ function WorkWithReels(state, action){
                     }
                     
                 }
-                
+               
             }
-            console.log(ArrNoKay)
+            
         }
     }
     
