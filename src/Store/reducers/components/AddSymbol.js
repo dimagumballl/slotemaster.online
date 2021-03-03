@@ -2,22 +2,25 @@ import {keys} from "lodash"
 import {omit} from 'lodash'
 
 function AddSymbol(state, action){
-    let PayT={}
+    
     let Subst={}
-    let masKey
+    let Reel={}
+    
     let N=0
     let symbols=state.Game.SceneList[action.paylot].Symbols
-    let S={}
- 
-    let State = state
+    let masKey=keys(symbols)
     
     if(keys(state.Game.SceneList[action.paylot].Symbols).length==0)
     {
         
-        N=0;
-        PayT={
-            ...PayT,
-            1:0
+        
+        
+        for(let i = 0;i<state.Game.SceneList[action.paylot].NumberOfReels;i++){
+            Reel={
+                ...Reel,
+                [i+1]:0
+            }
+            
         }
         symbols={
             
@@ -25,16 +28,22 @@ function AddSymbol(state, action){
                 name:"Symbol_"+N,
                 id:"s"+N+"w",
                 Paytable:{
-                    [N+1]:0
+                    ...Reel
                 },
                 Substiture:{
-                    ["Symbol_"+N]:false
+                    [N]:{
+                        id:N,
+                        value:false
+                    }
                    
                 },
                 Special:{
                     isWild:false,
                     isScatter:false,
                     isSpecific:false
+                },
+                Reelstrip:{
+                    ...Reel
                 }
             },
             
@@ -61,43 +70,15 @@ function AddSymbol(state, action){
             }
             
             
-            masKey=keys(State.Game.SceneList[action.paylot].Symbols)
-            for(var i = 0;i<masKey.length+1;i++)
-            {
-                if(i<masKey.length)
-                symbols={
-                    ...symbols,
-                    [masKey[i]]:{
-                        ...symbols[masKey[i]],
-                        Paytable:{
-                            ...symbols[masKey[i]].Paytable,
-                            [masKey.length+1]:0
-                           
-                        }
-                    }
-                }
-                
-                
-            }
             
-            for(let i = 1;i<=masKey.length+1;i++)
-            {
-                
-                PayT={
-                    ...PayT,
-                    [i]:0
-                }
-                if(i<masKey.length+1)
-                Subst={
-                    ...Subst,
-                    [symbols[masKey[i-1]].name]:false
-                }
-                else
-                Subst={
-                    ...Subst,
-                    ["Symbol_"+N]:false
+            for(let i = 0;i<state.Game.SceneList[action.paylot].NumberOfReels;i++){
+                Reel={
+                    ...Reel,
+                    [i+1]:0
                 }
             }
+                
+            
             for(var i = 0;i<masKey.length+1;i++)
             {
                 if(i<masKey.length)
@@ -107,7 +88,10 @@ function AddSymbol(state, action){
                         ...symbols[masKey[i]],
                         Substiture:{
                             ...symbols[masKey[i]].Substiture,
-                            ["Symbol_"+N]:false
+                            [N]:{
+                                id:N,
+                                value:false
+                            }
                             
                         }
                     }
@@ -115,13 +99,33 @@ function AddSymbol(state, action){
                 
                 
             }
+            for(let i=0;i<=masKey.length;i++){
+                if(i!=masKey.length){
+                    Subst={
+                        ...Subst,
+                        [masKey[i]]:{
+                            id:masKey[i],
+                            value:false
+                        }
+                    }
+                }
+                else{
+                    Subst={
+                        ...Subst,
+                        [N]:{
+                            id:[N],
+                            value:false
+                        }
+                    }
+                }
+            }
             symbols={
               ...symbols,
               [N]:{
                 name:"Symbol_"+N,
                 id:"s"+N+"w",
                 Paytable:{
-                    ...PayT,
+                    ...Reel,
                 },
                 Substiture:{
                     ...Subst
@@ -130,6 +134,9 @@ function AddSymbol(state, action){
                     isWild:false,
                     isScatter:false,
                     isSpecific:false
+                },
+                Reelstrip:{
+                    ...Reel
                 }
               }
             }

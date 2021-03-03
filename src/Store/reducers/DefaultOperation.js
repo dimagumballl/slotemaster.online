@@ -3,12 +3,13 @@ import {omit} from 'lodash'
 
 import initialState from './initialState';
 import CreateScene from './components/CreateScene'
-import {InputFid, InputFN, InputSN, InputGT, InputNOR} from './components/Inputs'
+import {InputFid, InputFN, InputSN, InputGT, InputNOR, InputSymN, InputSymID, InputSymPayT, InputSymSub, InputSymSpec, InputSymReel} from './components/Inputs'
 import {DeleteScene} from './components/Deletes'
 import {Select, SelectMC} from './components/Select' 
 import {StartReset} from './components/StartReset'
 import {AddSymbol} from './components/AddSymbol'
 import {DeleteSymbol} from './components/DeleteSymbol'
+import {WorkWithReels} from './components/WorkWithReels'
 
  function DefaultOpration(state = initialState, action){
     switch(action.type) {
@@ -49,6 +50,28 @@ import {DeleteSymbol} from './components/DeleteSymbol'
         }
         case "INPUT_GAME_TYPE": {
             return InputGT(state, action)
+        }
+        case "INPUT_SYMBOL_NAME":{
+            return InputSymN(state, action)
+        }
+        case "INPUT_SYMBOL_ID":{
+            return InputSymID(state, action)
+        }
+
+        case "INPUT_SYMBOL_PAYTABLE":{
+            return InputSymPayT(state, action)
+        }
+        case "INPUT_SYMBOL_SUBSTITURE":{
+            return InputSymSub(state, action)
+        }
+        case "INPUT_SYMBOL_SPECIAL":{
+            return InputSymSpec(state, action)
+        }
+        case "INPUT_SYMBOL_REELSTRIP":{
+            return InputSymReel(state, action)
+        }
+        case "WORK_WITH_REELS":{
+            return WorkWithReels(state, action)
         }
         default: return state;
     }

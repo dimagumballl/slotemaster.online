@@ -24,7 +24,7 @@ class Paytable extends Component {
                             .map((key, n=1)=>
                             <div key={key}  className="container_row" style={{minWidth:"60px", border:"1px solid black", justifyContent:"center"}}>
                                 
-                                {n+1}
+                                {"Reel "+(n+1)}
                             </div>)
                 :<div style={{display:"none"}}></div>:<div style={{display:"none"}}></div>
             }
@@ -39,16 +39,18 @@ class Paytable extends Component {
                                 <div  className="container_row" style={{minWidth:"100px", border:"1px solid black", justifyContent:"center", overflow:"hidden"}}>
                                     {DefaultOperation.Game.SceneList[Id].Symbols[key].name}
                                 </div>
-                                {keys(DefaultOperation.Game.SceneList[Id].Symbols[key].Paytable).map((key1)=>
-                                    <input onChange={(e)=>this.props.InputSymPayT({vID:Id, vKEY:key, vKEY1:key1, targetV:e})} value={DefaultOperation.Game.SceneList[Id].Symbols[key].Paytable[key1]} key={key1}  className="container_row" style={{minWidth:"60px", border:"1px solid black", textAlign:"center"}}/>
+                                {
+                                    keys(DefaultOperation.Game.SceneList[Id].Symbols[key].Reelstrip).map((key1)=>
+                                        <input onChange={(e)=>this.props.InputSymReel({vID:Id, vKEY:key, vKEY1:key1, targetV:e})} value={DefaultOperation.Game.SceneList[Id].Symbols[key].Reelstrip[key1]} key={key1}  className="container_row" style={{minWidth:"60px", border:"1px solid black", textAlign:"center"}}/>
                                     
-                                )}
+                                    )
+                                }
                                 </div>
                                 
                                 
                             </div>
                             )
-                :<div></div>
+                :<div style={{display:"none"}}></div>
             }
     </div>   
     );
@@ -59,10 +61,10 @@ class Paytable extends Component {
 export default connect(
   state=>({state:state}),
   dispatch => ({
-    InputSymPayT: (value) => {
+    InputSymReel: (value) => {
        
     
-      dispatch(CreateAction("INPUT_SYMBOL_PAYTABLE", value))
+      dispatch(CreateAction("INPUT_SYMBOL_REELSTRIP", value))
       dispatch(CreateAction("WORK_WITH_REELS", value))
     },
   })

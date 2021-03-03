@@ -15,8 +15,8 @@ class SlotsScenes extends Component {
     const{DefaultOperation}=this.props.state
     return (
       <div className="SlotsScenes">
-        <div className="container_row" style={{height:"30px",borderBottom:"1px solid green"}}>
-            <div className="container_row">
+        <div className="container_row" style={{height:"50px"}}>
+            <div  style={{display:"flex",maxWidth:"100%",overflow:"auto"}}>
                 
                 {
                    DefaultOperation.Game!=undefined?
@@ -25,12 +25,12 @@ class SlotsScenes extends Component {
                         <Bookmark key={key}
                             Id={key}
                         />
-                    ):<div></div>
+                    ):<div style={{maxWidth:"0",display:"none"}}></div>
                     
                         
                 }
             </div>
-            <div className="con_but" style={{height:"100%", width:"30px",border:"none",borderLeft:"1px solid black"}} onClick={this.props.AddScene}>
+            <div className="con_but" style={{marginLeft:"5px",height:"30px", width:"30px", minWidth:"30px"}} onClick={this.props.AddScene}>
                 +
             </div>
         </div>

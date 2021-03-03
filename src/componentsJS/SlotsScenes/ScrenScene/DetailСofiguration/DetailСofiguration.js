@@ -8,6 +8,7 @@ import Symbols from './Symbols/Symbols'
 import Paytable from './Paytable/Paytable'
 import Substiture from './Substitutes/Substitutes'
 import Special from './Secial/Secial'
+import Reelstrip from './Reelstrip/Reelstrip'
 
 let butStyle={height:"30px", justifyContent:"flex-start" }
 let SlectedB={background:"green",height:"30px", justifyContent:"flex-start" }
@@ -54,7 +55,9 @@ class DetailСofiguration extends Component {
                 Reelstrip
             </div>
             <div className="table_scrin" style={DefaultOperation.Game.SceneList[Id].ScernTypeOfConf.Reelstrip?SlectedD:{display:"none"}}>
-                1
+                <Reelstrip
+                    Id={Id}
+                />
             </div>
         </div>
     );

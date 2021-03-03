@@ -20,22 +20,23 @@ class ScrenScene extends Component {
     this.props.InputGT({v1:event.target.value, v2:this.props.Id} );
   };
   NOR=(event)=>{
-    
-     if(event.target.value==""){
-      let num = 1
-      this.props.InputNOR({v1:num, v2:this.props.Id} );
+    let num
+    let a = NaN
+     if(event.target.value!=""){
+      num = parseInt(event.target.value.replace(/\D+/g,""))
+      
+      if(isNaN(num)){
+        num = ""
+        
       }
-    else if(this.props.state.DefaultOperation.Game.SceneList[this.props.Id].NumberOfReels<1){
-      let num = 1
-      this.props.InputNOR({v1:num, v2:this.props.Id} );
-      }
-    else if(this.props.state.DefaultOperation.Game.SceneList[this.props.Id].NumberOfReels>=1)
-      {
-        let num = parseInt(event.target.value.replace(/\D+/g,""))
-      this.props.InputNOR({v1:num, v2:this.props.Id} );
+      this.props.InputNOR({v1:num, v2:this.props.Id, ReelSize:true, v3:this.props.state.DefaultOperation.Game.SceneList[this.props.Id].NumberOfReels} );
+     }
+     
+    else {
+      num = ""
+      this.props.InputNOR({v1:num, v2:this.props.Id,ReelSize:true , v3:this.props.state.DefaultOperation.Game.SceneList[this.props.Id].NumberOfReels} );
     }
     
-      
   }
   render(){
     const{DefaultOperation}=this.props.state
@@ -89,9 +90,13 @@ export default connect(
     },
     InputGT: (value) => {
         dispatch(CreateAction("INPUT_GAME_TYPE", value))
+        dispatch(CreateAction("WORK_WITH_REELS", value))
     },
     InputNOR: (value) => {
+      
       dispatch(CreateAction("INPUT_NUM_REELS", value))
+      
+      dispatch(CreateAction("WORK_WITH_REELS", value))
   },
   })
 )(ScrenScene);

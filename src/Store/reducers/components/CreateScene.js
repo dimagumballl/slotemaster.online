@@ -13,9 +13,26 @@ function CreateScene(state){
                 SceneList:{
                     0:{
                         id:"0",
-                        SceneName : "SceneName",
+                        SceneName : "SceneName_"+0,
                         GameType : "Slot",
-                        NumberOfReels : 5,
+                        NumberOfReels:5,
+                        Reels : {
+                            1:{
+                                name:"Reel1"
+                            },
+                            2:{
+                                name:"Reel2"
+                            },
+                            3:{
+                                name:"Reel3"
+                            },
+                            4:{
+                                name:"Reel4"
+                            },
+                            5:{
+                                name:"Reel5"
+                            },
+                        },
                         ScernTypeOfConf:{
                             Symbols:false,
                             Paytable:false,
@@ -69,9 +86,26 @@ function CreateScene(state){
                 SceneList:{
                     0:{
                         id:"0",
-                        SceneName : "SceneName",
+                        SceneName : "SceneName_"+0,
                         GameType : "Slot",
-                        NumberOfReels : 5,
+                        NumberOfReels:5,
+                        Reels : {
+                            1:{
+                                name:"Reel1"
+                            },
+                            2:{
+                                name:"Reel2"
+                            },
+                            3:{
+                                name:"Reel3"
+                            },
+                            4:{
+                                name:"Reel4"
+                            },
+                            5:{
+                                name:"Reel5"
+                            },
+                        },
                         ScernTypeOfConf:{
                             Symbols:false,
                             Paytable:false,
@@ -143,9 +177,26 @@ function CreateScene(state){
                     [N]:{
                         
                         id:[N],
-                        SceneName : "SceneName",
+                        SceneName : "SceneName_"+[N],
                         GameType : "Slot",
-                        NumberOfReels : 5,
+                        NumberOfReels:5,
+                        Reels : {
+                            1:{
+                                name:"Reel1"
+                            },
+                            2:{
+                                name:"Reel2"
+                            },
+                            3:{
+                                name:"Reel3"
+                            },
+                            4:{
+                                name:"Reel4"
+                            },
+                            5:{
+                                name:"Reel5"
+                            }
+                        },
                         ScernTypeOfConf:{
                             Symbols:false,
                             Paytable:false,
