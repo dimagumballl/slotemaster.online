@@ -3,13 +3,14 @@ import {omit} from 'lodash'
 
 import initialState from './initialState';
 import CreateScene from './components/CreateScene'
-import {InputFid, InputFN, InputSN, InputGT, InputNOR, InputSymN, InputSymID, InputSymPayT, InputSymSub, InputSymSpec, InputSymReel} from './components/Inputs'
+import {InputFreesG, InputNumberIfFreespin, InputFid, InputFN, InputSN, InputGT, InputNOR, InputSymN, InputSymID, InputSymPayT, InputSymSub, InputSymSpec, InputSymReel} from './components/Inputs'
 import {DeleteScene} from './components/Deletes'
 import {Select, SelectMC} from './components/Select' 
 import {StartReset} from './components/StartReset'
 import {AddSymbol} from './components/AddSymbol'
 import {DeleteSymbol} from './components/DeleteSymbol'
 import {WorkWithReels} from './components/WorkWithReels'
+import {AddFreespinGame} from './components/AddFreespinGame'
 
  function DefaultOpration(state = initialState, action){
     switch(action.type) {
@@ -70,8 +71,17 @@ import {WorkWithReels} from './components/WorkWithReels'
         case "INPUT_SYMBOL_REELSTRIP":{
             return InputSymReel(state, action)
         }
+        case "INPUT_NUMBER_IF_FREESPIN":{
+            return InputNumberIfFreespin(state, action)
+        } 
+        case "INPUT_FREESPIN_GAME":{
+            return InputFreesG(state, action)
+        }
         case "WORK_WITH_REELS":{
             return WorkWithReels(state, action)
+        }
+        case "ADD_FREESPIN_GAME":{
+            return AddFreespinGame(state, action)
         }
         default: return state;
     }

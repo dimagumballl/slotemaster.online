@@ -12,22 +12,7 @@ function DeleteSymbol(state, action){
     let sarray=keys(symbols)
     
     
-    for(let i = 0;i<sarray.length;i++){
-        
-        
-        symbols={
-            ...symbols,
-            [sarray[i]]:{
-                ...symbols[sarray[i]],
-                Paytable:{
-                    ...omit(symbols[sarray[i]].Paytable, sarray.length+1)
-
-                }
-            }
-        }
-       
-        
-    }
+    
     for(let i = 0;i<sarray.length;i++){
         
        

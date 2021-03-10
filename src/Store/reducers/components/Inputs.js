@@ -52,9 +52,14 @@ function InputNOR(state, action){
     let Nof = state.Game.SceneList[action.paylot.v2].NumberOfReels
     let nValue = action.paylot.v1
     let symbols=state.Game.SceneList[action.paylot.v2].Symbols
-    
+    let NIF = state.Game.SceneList[action.paylot.v2].NumberIfFreespin
+
     if(nValue<Nof){
         for(let i = nValue+1;i<=Nof;i++){
+            NIF={
+                
+                ...omit(NIF, i)
+            }
             for(let a = 0;a<keys(symbols).length;a++){
                 symbols={
                     ...symbols,
@@ -73,7 +78,13 @@ function InputNOR(state, action){
         }
     }
     else if(nValue>Nof){
+        
         for(let i = Nof+1;i<=nValue;i++){
+            NIF={
+                
+                ...NIF,
+                [i]:0
+            }
             for(let a = 0;a<keys(symbols).length;a++){
                 symbols={
                     ...symbols,
@@ -104,6 +115,9 @@ function InputNOR(state, action){
                     NumberOfReels : nValue,
                     Symbols:{
                         ...symbols
+                    },
+                    NumberIfFreespin:{
+                        ...NIF
                     }
                 }
             }
@@ -230,6 +244,17 @@ function InputSymSub(state, action){
                                     }
                                 }
                                 
+                            },
+                            [vKEY1]:{
+                                ...state.Game.SceneList[vID].Symbols[vKEY1],
+                                Substiture:{
+                                    ...state.Game.SceneList[vID].Symbols[vKEY1].Substiture,
+                                    [vKEY]:{
+                                       ...state.Game.SceneList[vID].Symbols[vKEY1].Substiture[vKEY],
+                                       value:targetV 
+                                    }
+                                }
+                                
                             }
                         },
                     }
@@ -313,4 +338,53 @@ function InputSymReel(state, action){
         }
 
 }
-export {InputFid, InputFN, InputSN, InputGT, InputNOR, InputSymN, InputSymID, InputSymPayT, InputSymSub, InputSymSpec, InputSymReel}
+ function InputNumberIfFreespin(state, action){
+    let vID=action.paylot.vID, vKEY=action.paylot.vKEY, targetV=action.paylot.targetV.target.value, num
+    if(targetV!=""){
+             num = parseInt(targetV.replace(/\D+/g,""))
+             if(isNaN(num)){
+                num = ""
+                
+              }
+    }
+    else{
+        num=""
+    }
+    return{
+        ...state,
+            Game:{
+                ...state.Game,
+                SceneList:{
+                    ...state.Game.SceneList,
+                    [vID]:{
+                        ...state.Game.SceneList[vID],
+                        NumberIfFreespin:{
+                            ...state.Game.SceneList[vID].NumberIfFreespin,
+                            [vKEY]:num
+                        }
+                        
+                    }
+                }
+            },
+    }
+ }
+ function InputFreesG(state, action){
+     
+    let vID=action.paylot.vID, targetV=action.paylot.targetV.target.value
+    
+    return{
+        ...state,
+            Game:{
+                ...state.Game,
+                SceneList:{
+                    ...state.Game.SceneList,
+                    [vID]:{
+                        ...state.Game.SceneList[vID],
+                        FreespinGame:targetV
+                        
+                    }
+                }
+            },
+    }
+ }
+export {InputFreesG, InputNumberIfFreespin,InputFid, InputFN, InputSN, InputGT, InputNOR, InputSymN, InputSymID, InputSymPayT, InputSymSub, InputSymSpec, InputSymReel}

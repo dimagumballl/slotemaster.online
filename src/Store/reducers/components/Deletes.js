@@ -22,9 +22,6 @@ function DeleteScene(state, action){
                         GameType : "Slot",
                         NumberOfReels:5,
                         Reels : {
-                            0:{
-                                name:"Reel1"
-                            },
                             1:{
                                 name:"Reel1"
                             },
@@ -37,6 +34,9 @@ function DeleteScene(state, action){
                             4:{
                                 name:"Reel1"
                             },
+                            5:{
+                                name:"Reel1"
+                            },
                         },
 
                         ScernTypeOfConf:{
@@ -45,12 +45,14 @@ function DeleteScene(state, action){
                             Substitutes:false,
                             Special:false,
                             Reelstrip:false,
+                            NumberIfFreespin:false
                         },
                         SlectedScernTypeOfConf:"",
                         Symbols:{
                             
                         },
-                        
+                        FreespinGame:0,
+                        NumberIfFreespin:{},
                         TotalRTP: "0",
                         BaseGameRTP: "0",
                         FreespinsRTP: "0",
@@ -75,6 +77,24 @@ function DeleteScene(state, action){
                         display:"flex"
                     },
                 }
+                let reels=sceneList[0].Reels
+                for(let i = 1;i<=keys(reels).length;i++){
+                    
+                        
+                            
+                                sceneList={
+                                    ...sceneList,
+                                        [0]:{
+                                            ...sceneList[0],
+                                            NumberIfFreespin:{
+                                                ...sceneList[0].NumberIfFreespin,
+                                                [i]:0
+                                            },
+                                        }  
+                                }
+                        
+                    
+                }
                 return{
                     ...state,
                     Game:{
@@ -95,21 +115,43 @@ function DeleteScene(state, action){
         }
          else{
              let k = keys(omit(state.ScrenList,action.paylot))[0]
+             let State = {...state}
              
-            return{
-                ...state,
+             for(let i = 0;i<keys(State.Game.SceneList).length;i++){
+                 if(keys(State.Game.SceneList)[i]!=action.paylot){
+                     if(State.Game.SceneList[keys(State.Game.SceneList)[i]].FreespinGame==action.paylot){
+                         
+                        State={
+                            ...State,
+                            Game:{
+                                ...State.Game,
+                                SceneList:{
+                                    ...State.Game.SceneList,
+                                    [keys(State.Game.SceneList)[i]]:{
+                                        ...State.Game.SceneList[keys(State.Game.SceneList)[i]],
+                                        FreespinGame:Number(keys(State.Game.SceneList)[i])
+                                    }
+                                }
+                            }
+                        }
+                     }
+                 }
+             }
+             
+             State={
+                ...State,
                 Game:{
-                    ...state.Game,
+                    ...State.Game,
                     SceneList:{
                         
-                        ...omit(state.Game.SceneList,action.paylot),
+                        ...omit(State.Game.SceneList,action.paylot),
                         
                     }
                     
                 },
                 BookmarkList:{
                     
-                    ...omit(state.BookmarkList,action.paylot),
+                    ...omit(State.BookmarkList,action.paylot),
                     [k]:{
                         Id:""+k+"",
                         backg:"green"
@@ -117,13 +159,17 @@ function DeleteScene(state, action){
                 },
                 ScrenList:{
                     
-                    ...omit(state.ScrenList,action.paylot),
+                    ...omit(State.ScrenList,action.paylot),
                     [k]:{
                         Id:""+k+"",
                         display:"flex"
                     },
                 },
                 BookmarkOn:k
+            }
+            
+            return{
+                ...State
             }
          }
 }

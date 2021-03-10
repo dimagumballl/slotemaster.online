@@ -9,6 +9,7 @@ import Paytable from './Paytable/Paytable'
 import Substiture from './Substitutes/Substitutes'
 import Special from './Secial/Secial'
 import Reelstrip from './Reelstrip/Reelstrip'
+import NumberIfFreespin from './NumberIfFreespin/NumberIfFreespin'
 
 let butStyle={height:"30px", justifyContent:"flex-start" }
 let SlectedB={background:"green",height:"30px", justifyContent:"flex-start" }
@@ -37,7 +38,7 @@ class DetailСofiguration extends Component {
                 />
             </div>
             <div className="con_sub" onClick={()=>this.props.SelectMC({v1:"Substiture",v2:Id})} style={DefaultOperation.Game.SceneList[Id].ScernTypeOfConf.Substiture?SlectedB:butStyle}>
-                Substiture
+                Substitute
             </div>
             <div className="table_scrin" style={DefaultOperation.Game.SceneList[Id].ScernTypeOfConf.Substiture?SlectedD:{display:"none"}}>
                 
@@ -51,6 +52,14 @@ class DetailСofiguration extends Component {
                      Id={Id}
                 />
             </div>
+            <div className="con_sub" onClick={()=>this.props.SelectMC({v1:"NumberIfFreespin",v2:Id})} style={DefaultOperation.Game.SceneList[Id].ScernTypeOfConf.NumberIfFreespin?SlectedB:butStyle}>
+                Number if freespin
+            </div>
+            <div className="table_scrin" style={DefaultOperation.Game.SceneList[Id].ScernTypeOfConf.NumberIfFreespin?SlectedD:{display:"none"}}>
+                <NumberIfFreespin
+                    Id={Id}
+                />
+            </div>
             <div className="con_sub" onClick={()=>this.props.SelectMC({v1:"Reelstrip",v2:Id})} style={DefaultOperation.Game.SceneList[Id].ScernTypeOfConf.Reelstrip?SlectedB:butStyle}>
                 Reelstrip
             </div>
@@ -59,6 +68,7 @@ class DetailСofiguration extends Component {
                     Id={Id}
                 />
             </div>
+            
         </div>
     );
   }

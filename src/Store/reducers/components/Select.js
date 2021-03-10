@@ -102,6 +102,18 @@ function SelectMC(state, action){
             }
             break
         }
+        case "NumberIfFreespin":{
+            if(state.Game.SceneList[action.paylot.v2].ScernTypeOfConf.NumberIfFreespin){
+                s2=""
+                v=false
+            }
+            else{
+                if(state.Game.SceneList[action.paylot.v2].SlectedScernTypeOfConf!="NumberIfFreespin")
+                    s2=state.Game.SceneList[action.paylot.v2].SlectedScernTypeOfConf
+                v=true
+            }
+            break
+        }
     }
     if(s!=s2) 
     if(state.Game.SceneList[action.paylot.v2].SlectedScernTypeOfConf!="") 

@@ -11,7 +11,8 @@ class Paytable extends Component {
     const{DefaultOperation}=this.props.state
     const{Id}=this.props
     return (
-      <div className="container_column" style={{overflow:"auto", maxWidth:"600px"}}>
+      <div className="container_column">
+        <div className="container_column" style={{overflow:"auto", maxWidth:"100%"}}>
           <div className="container_row" >
             <div className="container_row" style={{minWidth:"100px",border:"1px solid black"}}>
                 Symbol
@@ -52,7 +53,20 @@ class Paytable extends Component {
                             )
                 :<div style={{display:"none"}}></div>
             }
-    </div>   
+        </div>
+        <div className="con_but" style={{width:"90px", marginTop:"10px"}}onClick={()=>this.props.UpRTP(Id)}>
+              Up RTP
+        </div>
+        <div className="container_row">
+          TotalRTP:{DefaultOperation.Game.SceneList[Id].TotalRTP}
+        </div>
+        <div className="container_row">
+          BaseGameRTP:{DefaultOperation.Game.SceneList[Id].BaseGameRTP}
+        </div>
+        <div className="container_row">
+          FreespinsRTP:{DefaultOperation.Game.SceneList[Id].FreespinsRTP}
+        </div>
+      </div>   
     );
   }
   
@@ -65,6 +79,12 @@ export default connect(
        
     
       dispatch(CreateAction("INPUT_SYMBOL_REELSTRIP", value))
+      dispatch(CreateAction("WORK_WITH_REELS", value))
+    },
+    UpRTP: (value) => {
+       
+    
+      
       dispatch(CreateAction("WORK_WITH_REELS", value))
     },
   })

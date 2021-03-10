@@ -28,7 +28,7 @@ class Symbols extends Component {
                 
             </div>
             
-            <div  style={{overflow:"auto",display:"flex"}}>
+            <div  style={{overflow:"auto",display:"flex", maxWidth:"100%"}}>
             {
                         keys(DefaultOperation.Game.SceneList[Id].Symbols).length!=0?
                             keys(DefaultOperation.Game.SceneList[Id].Symbols)

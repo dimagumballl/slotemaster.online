@@ -1,4 +1,4 @@
-
+import {keys} from "lodash"
 import {Component} from 'react'
 import {connect} from 'react-redux'
 import Select from '@material-ui/core/Select';
@@ -60,10 +60,29 @@ class ScrenScene extends Component {
           
             <InputLabel id="NumberofReels">Number of Reels </InputLabel>
             <input className="con_input" onChange={this.NOR} style={{height:"30px"}} value={DefaultOperation.Game.SceneList[Id].NumberOfReels}/>
-          
+            <InputLabel id="FreespinGame">Freespin Game </InputLabel>
+            <Select labelId="FreespinGame" onChange={(e)=>this.props.InputFreesG({vID:Id, targetV:e})}  value={DefaultOperation.Game.SceneList[Id].FreespinGame!=undefined?DefaultOperation.Game.SceneList[Id].FreespinGame:"u"}>
+            <MenuItem value="u"></MenuItem>
+              {
+                keys(DefaultOperation.Game.SceneList).length>1?
+                  keys(DefaultOperation.Game.SceneList).map((key)=>
+                    
+                    Id!=key?
+                    <MenuItem value={key} key={key}>{DefaultOperation.Game.SceneList[key].SceneName!=undefined?DefaultOperation.Game.SceneList[key].SceneName:"u"}</MenuItem>:""
+                  
+                  )
+                :""
+              }
+              <MenuItem value={Id}>Empty</MenuItem>
+              
+              
+            </Select>
+            <div className="con_but" style={{height:"30px"}}  onClick={()=>this.props.AddFreespinGame(Id)} >
+              Create Freespin
+            </div>
           </div>
           <div className="container_row" style={{justifyContent:"flex-end"}}>
-            <div className="con_but" style={{width:"90px",height:"25px"}} onClick={()=>this.props.Delete(Id)}>
+            <div className="con_but" style={{width:"90px",height:"25px"}}onClick={()=>this.props.Delete(Id)}>
               Delete
             </div>
           </div>
@@ -97,6 +116,18 @@ export default connect(
       dispatch(CreateAction("INPUT_NUM_REELS", value))
       
       dispatch(CreateAction("WORK_WITH_REELS", value))
+  },
+  InputFreesG: (value) => {
+      
+    dispatch(CreateAction("INPUT_FREESPIN_GAME", value))
+    
+    dispatch(CreateAction("WORK_WITH_REELS", value))
+  },
+  AddFreespinGame: (value) => {
+      
+    dispatch(CreateAction("ADD_FREESPIN_GAME", value))
+    
+    dispatch(CreateAction("WORK_WITH_REELS", value))
   },
   })
 )(ScrenScene);

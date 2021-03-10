@@ -12,7 +12,7 @@ class Special extends Component {
     const{DefaultOperation}=this.props.state
     const{Id}=this.props
     return (
-      <div className="container_column" style={{overflow:"auto", maxWidth:"800px"}}>
+      <div className="container_column" style={{overflow:"auto", maxWidth:"100%"}}>
           <div className="container_row" >
             <div className="container_row" style={{minWidth:"100px",border:"1px solid black"}}>
                 Symbols
