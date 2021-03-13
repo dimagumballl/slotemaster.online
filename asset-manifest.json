@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/slotemaster.online/static/css/main.8ec1b43f.chunk.css",
-    "main.js": "/slotemaster.online/static/js/main.19714677.chunk.js",
-    "main.js.map": "/slotemaster.online/static/js/main.19714677.chunk.js.map",
+    "main.js": "/slotemaster.online/static/js/main.e457269c.chunk.js",
+    "main.js.map": "/slotemaster.online/static/js/main.e457269c.chunk.js.map",
     "runtime-main.js": "/slotemaster.online/static/js/runtime-main.30da88d6.js",
     "runtime-main.js.map": "/slotemaster.online/static/js/runtime-main.30da88d6.js.map",
     "static/js/2.8e339e53.chunk.js": "/slotemaster.online/static/js/2.8e339e53.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.30da88d6.js",
     "static/js/2.8e339e53.chunk.js",
     "static/css/main.8ec1b43f.chunk.css",
-    "static/js/main.19714677.chunk.js"
+    "static/js/main.e457269c.chunk.js"
   ]
 }
