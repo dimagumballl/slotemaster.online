@@ -5,12 +5,14 @@ import initialState from './initialState';
 import CreateScene from './components/CreateScene'
 import {InputFreesG, InputNumberIfFreespin, InputFid, InputFN, InputSN, InputGT, InputNOR, InputSymN, InputSymID, InputSymPayT, InputSymSub, InputSymSpec, InputSymReel} from './components/Inputs'
 import {DeleteScene} from './components/Deletes'
-import {Select, SelectMC} from './components/Select' 
+import {Select, SelectMC, SelectAI} from './components/Select' 
 import {StartReset} from './components/StartReset'
 import {AddSymbol} from './components/AddSymbol'
 import {DeleteSymbol} from './components/DeleteSymbol'
 import {WorkWithReels} from './components/WorkWithReels'
 import {AddFreespinGame} from './components/AddFreespinGame'
+import ImportJSON from './components/ImportJSON'
+import {Valid, Windows} from './components/ControlInterface'
 
  function DefaultOpration(state = initialState, action){
     switch(action.type) {
@@ -33,6 +35,9 @@ import {AddFreespinGame} from './components/AddFreespinGame'
         }
         case "SELECT_MENU_CONFIG":{
             return SelectMC(state, action)
+        }
+        case "SELECT_ALL_INFORMATION":{
+            return SelectAI(state, action)
         }
         case "START_RESET":{
             return StartReset(state, action)
@@ -82,6 +87,15 @@ import {AddFreespinGame} from './components/AddFreespinGame'
         }
         case "ADD_FREESPIN_GAME":{
             return AddFreespinGame(state, action)
+        }
+        case "IMPORT_JSON":{
+            return ImportJSON(action.paylot)
+        }
+        case "VALIDATION":{
+            return Valid(state, action)
+        }
+        case "VOID_TYPE":{
+            return Windows(state, action)
         }
         default: return state;
     }

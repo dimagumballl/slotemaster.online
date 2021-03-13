@@ -179,5 +179,25 @@ function SelectMC(state, action){
         
     }
 }
-
-export {Select, SelectMC}
+function SelectAI(state, action){
+    return{
+        ...state,
+        Game:{
+            ...state.Game,
+            SceneList:{
+                ...state.Game.SceneList,
+                [action.paylot]:{
+                    ...state.Game.SceneList[action.paylot],
+                    
+                    ScernTypeOfConf:{
+                        ...state.Game.SceneList[action.paylot].ScernTypeOfConf,
+                        AllInfo:!state.Game.SceneList[action.paylot].ScernTypeOfConf.AllInfo,
+                        
+                    }
+                }
+            }
+        },
+        
+    }
+}
+export {Select, SelectMC, SelectAI}

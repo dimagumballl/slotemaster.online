@@ -82,7 +82,7 @@ class ScrenScene extends Component {
             </div>
           </div>
           <div className="container_row" style={{justifyContent:"flex-end"}}>
-            <div className="con_but" style={{width:"90px",height:"25px"}}onClick={()=>this.props.Delete(Id)}>
+            <div className="con_but" style={{width:"90px",height:"25px"}}onClick={()=>this.props.VoidT({void:"Delete", value:Id})}>
               Delete
             </div>
           </div>
@@ -129,5 +129,8 @@ export default connect(
     
     dispatch(CreateAction("WORK_WITH_REELS", value))
   },
+  VoidT:(state)=>{
+    dispatch(CreateAction("VOID_TYPE",state))
+  }
   })
 )(ScrenScene);

@@ -39,7 +39,8 @@ function CreateScene(state){
                             Substitutes:false,
                             Special:false,
                             Reelstrip:false,
-                            NumberIfFreespin:false
+                            NumberIfFreespin:false,
+                            AllInfo:false
                         },
                         SlectedScernTypeOfConf:"",
                         Symbols:{
@@ -153,7 +154,8 @@ function CreateScene(state){
                             Substitutes:false,
                             Special:false,
                             Reelstrip:false,
-                            NumberIfFreespin:false
+                            NumberIfFreespin:false,
+                            AllInfo:false
                         },
                         SlectedScernTypeOfConf:"",
                         Symbols:{
@@ -166,7 +168,6 @@ function CreateScene(state){
                         FreespinsRTP: "0",
                         BonusGameRTP: "0",
                         BasegameHitRate: "0",
-                        HitRate:{},
                         Combinations:{},
                         Returns:{}
                     }

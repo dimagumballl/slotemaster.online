@@ -13,10 +13,19 @@ function StartReset(state, action){
             
             
             
-                FirstBut:"Start",
-                FirstInputId:"",
-                FirstInputName:""
-            
+            FirstBut:"Start",
+            FirstInputId:"",
+            FirstInputName:"",
+            Validation:{
+                FirstInputName:true,
+                FirstInputId:true
+            },
+            Void:{
+                TypeOfVoid:"",
+                value:"",
+                text:""
+            },
+            NoneFilde:false
         }
     }
 

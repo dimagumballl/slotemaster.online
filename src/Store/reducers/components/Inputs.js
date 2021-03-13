@@ -2,15 +2,35 @@ import {keys} from "lodash"
 import {omit} from 'lodash'
 
 function InputFid(state, action){
+    let  num
+    if(action.paylot!=""){
+             num = parseInt(action.paylot.replace(/\D+/g,""))
+             if(isNaN(num)){
+                num = ""
+                
+              }
+    }
+    else{
+        num=""
+    }
     return{
         ...state,
-        FirstInputId: action.paylot
+        FirstInputId: num,
+        Validation:{
+            ...state.Validation,
+            FirstInputId:true
+        }
     }
 }
 function InputFN(state, action){
     return{
         ...state,
-        FirstInputName: action.paylot
+        FirstInputName: action.paylot,
+        Validation:{
+            ...state.Validation,
+            FirstInputName:true
+        }
+        
     }
 }
 function InputSN(state, action){

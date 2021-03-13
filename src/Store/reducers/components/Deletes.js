@@ -45,7 +45,8 @@ function DeleteScene(state, action){
                             Substitutes:false,
                             Special:false,
                             Reelstrip:false,
-                            NumberIfFreespin:false
+                            NumberIfFreespin:false,
+                            AllInfo:false
                         },
                         SlectedScernTypeOfConf:"",
                         Symbols:{

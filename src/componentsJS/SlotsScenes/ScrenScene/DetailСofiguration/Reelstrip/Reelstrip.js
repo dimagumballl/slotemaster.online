@@ -3,7 +3,7 @@ import {Component} from 'react'
 import {connect} from 'react-redux'
 
 import {CreateAction} from '../../../../../Store/action/MainAction';
-
+import AllInfo from './AllInfo/AllInfo'
 
 class Paytable extends Component {
   
@@ -66,6 +66,18 @@ class Paytable extends Component {
         <div className="container_row">
           FreespinsRTP:{DefaultOperation.Game.SceneList[Id].FreespinsRTP}
         </div>
+        <div className="container_row" style={{justifyContent:"center"}}>
+          <div className="con_but" style={{width:"50%", height:"50px"}} onClick={()=>this.props.SelectAI(Id)}>
+            Show all
+          </div>
+          
+        </div>
+        <div className="container_row" style={!DefaultOperation.Game.SceneList[Id].ScernTypeOfConf.AllInfo?{display:"none"}:{justifyContent:"center",display:"flex"}}>
+          
+          <AllInfo
+            Id={Id}
+          />
+        </div>
       </div>   
     );
   }
@@ -80,6 +92,12 @@ export default connect(
     
       dispatch(CreateAction("INPUT_SYMBOL_REELSTRIP", value))
       dispatch(CreateAction("WORK_WITH_REELS", value))
+    },
+    SelectAI: (value) => {
+       
+    
+      dispatch(CreateAction("SELECT_ALL_INFORMATION", value))
+      
     },
     UpRTP: (value) => {
        

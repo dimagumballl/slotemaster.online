@@ -9,6 +9,7 @@ function WorkWithReels(state, action){
     let RTP_base = 0
     let FreeGame = 0
     let RTP = 0
+    let HitRate=0
     
     for(let i = 0;i<keys(action.paylot).length;i++){
         if(MasKey[i]=="vID"){
@@ -595,6 +596,7 @@ function WorkWithReels(state, action){
                                 [keys(symbols)[a]]:{
                                     ...reels[i].symbols[keys(symbols)[a]],
                                     RTP:{
+                                        ...reels[i].symbols[keys(symbols)[a]].RTP,
                                         [l]:reels[i].symbols[keys(symbols)[a]].Paytable[l]*reels[i].symbols[keys(symbols)[a]].p_sym_win[l]
                                     }
                                 }
@@ -620,6 +622,42 @@ function WorkWithReels(state, action){
         
         RTP=RTP_base+FreeGame
         
+        //HitRate
+
+        HitRate=0
+
+        if(keys(reels).length!=0){
+            for(let i = 1;i<=keys(reels).length;i++){
+                HitRate=0
+                for(let a = 0;a<keys(reels[i].symbols).length;a++){
+                    for(let l = 1;l<=keys(reels).length;l++){
+                        reels={
+                            ...reels,
+                            [i]:{
+                                ...reels[i],
+                                symbols:{
+                                  ...reels[i].symbols,
+                                    [keys(symbols)[a]]:{
+                                        ...reels[i].symbols[keys(symbols)[a]],
+                                        Rate:{
+                                            ...reels[i].symbols[keys(symbols)[a]].Rate,
+                                            [l]:reels[i].symbols[keys(symbols)[a]].p_sym_win[l]!=0?1/reels[i].symbols[keys(symbols)[a]].p_sym_win[l]:0
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        HitRate=HitRate+reels[i].symbols[keys(symbols)[a]].p_sym_win[l]
+                    }
+                    
+                }
+                if(HitRate!=0)
+                    HitRate=1/HitRate 
+                else 
+                    HitRate=0
+            }
+        }
+            
     }
     
     return{
@@ -635,7 +673,8 @@ function WorkWithReels(state, action){
                    },
                    BaseGameRTP:RTP_base ,
                    TotalRTP:RTP,
-                   FreespinsRTP:FreeGame
+                   FreespinsRTP:FreeGame,
+                   BasegameHitRate:HitRate
                 }
             }
         }
