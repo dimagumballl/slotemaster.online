@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/slotemaster.online/static/css/main.1413d595.chunk.css",
-    "main.js": "/slotemaster.online/static/js/main.1e6e3de2.chunk.js",
-    "main.js.map": "/slotemaster.online/static/js/main.1e6e3de2.chunk.js.map",
+    "main.css": "/slotemaster.online/static/css/main.8ec1b43f.chunk.css",
+    "main.js": "/slotemaster.online/static/js/main.19714677.chunk.js",
+    "main.js.map": "/slotemaster.online/static/js/main.19714677.chunk.js.map",
     "runtime-main.js": "/slotemaster.online/static/js/runtime-main.30da88d6.js",
     "runtime-main.js.map": "/slotemaster.online/static/js/runtime-main.30da88d6.js.map",
-    "static/js/2.f9cb0faa.chunk.js": "/slotemaster.online/static/js/2.f9cb0faa.chunk.js",
-    "static/js/2.f9cb0faa.chunk.js.map": "/slotemaster.online/static/js/2.f9cb0faa.chunk.js.map",
+    "static/js/2.8e339e53.chunk.js": "/slotemaster.online/static/js/2.8e339e53.chunk.js",
+    "static/js/2.8e339e53.chunk.js.map": "/slotemaster.online/static/js/2.8e339e53.chunk.js.map",
     "static/js/3.a2061b17.chunk.js": "/slotemaster.online/static/js/3.a2061b17.chunk.js",
     "static/js/3.a2061b17.chunk.js.map": "/slotemaster.online/static/js/3.a2061b17.chunk.js.map",
     "index.html": "/slotemaster.online/index.html",
-    "static/css/main.1413d595.chunk.css.map": "/slotemaster.online/static/css/main.1413d595.chunk.css.map",
-    "static/js/2.f9cb0faa.chunk.js.LICENSE.txt": "/slotemaster.online/static/js/2.f9cb0faa.chunk.js.LICENSE.txt"
+    "static/css/main.8ec1b43f.chunk.css.map": "/slotemaster.online/static/css/main.8ec1b43f.chunk.css.map",
+    "static/js/2.8e339e53.chunk.js.LICENSE.txt": "/slotemaster.online/static/js/2.8e339e53.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.30da88d6.js",
-    "static/js/2.f9cb0faa.chunk.js",
-    "static/css/main.1413d595.chunk.css",
-    "static/js/main.1e6e3de2.chunk.js"
+    "static/js/2.8e339e53.chunk.js",
+    "static/css/main.8ec1b43f.chunk.css",
+    "static/js/main.19714677.chunk.js"
   ]
 }
