@@ -46,6 +46,11 @@ function CreateScene(state){
                         Symbols:{
                             
                         },
+                        Log:{
+
+                        },
+                        Wild:false,
+                        Scatter:false,
                         FreespinGame:0,
                         NumberIfFreespin:{},
                         TotalRTP: "0",
@@ -161,6 +166,11 @@ function CreateScene(state){
                         Symbols:{
                             
                         },
+                        Log:{
+                            
+                        },
+                        Wild:false,
+                        Scatter:false,
                         FreespinGame:N,
                         NumberIfFreespin:{},
                         TotalRTP: "0",

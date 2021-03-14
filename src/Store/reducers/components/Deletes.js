@@ -52,6 +52,11 @@ function DeleteScene(state, action){
                         Symbols:{
                             
                         },
+                        Log:{
+                            
+                        },
+                        Wild:false,
+                        Scatter:false,
                         FreespinGame:0,
                         NumberIfFreespin:{},
                         TotalRTP: "0",

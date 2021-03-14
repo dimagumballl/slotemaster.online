@@ -90,8 +90,14 @@ class Header extends Component {
              <div className="con_but" style={{width:"90px",height:"30px"}} onClick={()=>this.Valid("Export")}>
                 export
             </div>
-            <input type="file" className="custom-file-input" style={{width:"92px",height:"32px",marginLeft:"10px", marginRight:"10px"}} onChange={(e)=>this.IJ(e)}/>
+              <label htmlFor="filePicker" className="con_but" style={{width:"90px",height:"30px"}}>
+                Import
+              </label>
+              <input type="file" id="filePicker" style={{visibility:"hidden",width:"10px"}} onChange={(e)=>this.IJ(e)}/>
                 
+            
+
+               
             
         </div>
       </div>

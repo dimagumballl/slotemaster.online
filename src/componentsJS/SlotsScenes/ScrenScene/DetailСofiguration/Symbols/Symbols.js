@@ -16,13 +16,13 @@ class Symbols extends Component {
           <div className="container_row" style={{margin:"20px"}}>
             <div className="container_column" style={{width:"100px", borderRight:"1px solid black"}}>
                 
-                    <div className="container_row" style={{height:"30px",width:"100px", borderRight:"1px solid black"}}>
+                    <div className="container_row" style={{height:"30px",width:"150px", borderRight:"1px solid black"}}>
                         Symbols Name
                     </div>
                     
                 
                 
-                    <div className="container_row" style={{height:"30px",width:"100px", borderRight:"1px solid black"}}>
+                    <div className="container_row" style={{height:"30px",width:"150px", borderRight:"1px solid black",marginTop:"10px"}}>
                         ID
                     </div>
                 
@@ -35,11 +35,11 @@ class Symbols extends Component {
                             .map((key) =>
                             <div className="container_column" key={key} style={{height:"100%",width:"120px"}}>
                                 <div className="container_row">
-                                    <input name="SymbolName" onChange={(e)=>this.props.InputSymN( {vID:Id, vKEY:key, p:this.props, targetV:e})} value={DefaultOperation.Game.SceneList[Id].Symbols[key].name} style={{width:"100%"}}/>
+                                    <input name="SymbolName" onChange={(e)=>this.props.InputSymN( {vID:Id, vKEY:key, p:this.props, targetV:e})} value={DefaultOperation.Game.SceneList[Id].Symbols[key].name} style={DefaultOperation.Game.SceneList[Id].Symbols[key].Corect.Name?{width:"100%", background:"white"}:{width:"100%", background:"red"}}/>
                                     
                                 </div>
                                 <div className="container_row">
-                                    <input onChange={(e)=>this.props.InputSymID({vID:Id, vKEY:key, p:this.props, targetV:e})} value={DefaultOperation.Game.SceneList[Id].Symbols[key].id} style={{width:"100%"}}/>
+                                    <input onChange={(e)=>this.props.InputSymID({vID:Id, vKEY:key, p:this.props, targetV:e})} value={DefaultOperation.Game.SceneList[Id].Symbols[key].id} style={DefaultOperation.Game.SceneList[Id].Symbols[key].Corect.Id?{width:"100%", background:"white"}:{width:"100%", background:"red"}}/>
                                     
                                 </div>
                                 <div className="con_but" onClick={()=>this.props.DeleteSymbol({vID:Id, v1:Id,v2:key})} style={{height:"100%"}}>

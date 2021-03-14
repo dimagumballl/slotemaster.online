@@ -44,7 +44,11 @@ function AddSymbol(state, action){
                 },
                 Reelstrip:{
                     ...Reel
-                }
+                },
+                Corect:{
+                    Name:true,
+                    Id:true
+                },
             },
             
         }
@@ -137,7 +141,11 @@ function AddSymbol(state, action){
                 },
                 Reelstrip:{
                     ...Reel
-                }
+                },
+                Corect:{
+                    Name:true,
+                    Id:true
+                },
               }
             }
             

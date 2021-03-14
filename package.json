@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.7.1",
     "bongo": "0.0.0",
     "bongo.js": "^1.1.2",
+    "bootstrap": "^4.6.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",

@@ -1,4 +1,5 @@
 import '../common/Style/main.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {Component} from 'react'
 import {connect} from 'react-redux'
 

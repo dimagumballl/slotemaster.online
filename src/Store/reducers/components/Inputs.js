@@ -34,6 +34,7 @@ function InputFN(state, action){
     }
 }
 function InputSN(state, action){
+    
     return {
         ...state,
         Game:{
@@ -43,6 +44,7 @@ function InputSN(state, action){
                 [action.paylot.v2]:{
                     ...state.Game.SceneList[action.paylot.v2],
                     SceneName : action.paylot.v1,
+                    
                 }
             }
         },
@@ -147,7 +149,16 @@ function InputNOR(state, action){
 }
 function InputSymN(state, action){
     let vID=action.paylot.vID, vKEY=action.paylot.vKEY, targetV=action.paylot.targetV.target.value
-        return {
+    let Name = state.Game.SceneList[vID].Symbols[vKEY].Corect.Name
+    
+    if(!/^[A-Za-z0-9_.]+$/gi.test(targetV)){
+        Name=false
+        
+    }
+    else{
+        Name=true
+    }  
+    return {
             ...state,
             Game:{
                 ...state.Game,
@@ -159,8 +170,12 @@ function InputSymN(state, action){
                         Symbols:{
                             ...state.Game.SceneList[vID].Symbols,
                             [vKEY]:{
-                                ...state.Game.SceneList[vID].Symbols[[vKEY]],
-                                name:targetV
+                                ...state.Game.SceneList[vID].Symbols[vKEY],
+                                name:targetV,
+                                Corect:{
+                                    ...state.Game.SceneList[vID].Symbols[vKEY].Corect,
+                                    Name:Name
+                                }
                             }
                         },
                     }
@@ -172,7 +187,16 @@ function InputSymN(state, action){
 }
 function InputSymID(state, action){
     let vID=action.paylot.vID, vKEY=action.paylot.vKEY, targetV=action.paylot.targetV.target.value
-        return {
+    let Id = state.Game.SceneList[vID].Symbols[vKEY].Corect.Id
+    
+    if(!/^[A-Za-z0-9_.]+$/gi.test(targetV)){
+        Id=false
+        
+    }
+    else{
+        Id=true
+    }    
+    return {
             ...state,
             Game:{
                 ...state.Game,
@@ -184,8 +208,12 @@ function InputSymID(state, action){
                         Symbols:{
                             ...state.Game.SceneList[vID].Symbols,
                             [vKEY]:{
-                                ...state.Game.SceneList[vID].Symbols[[vKEY]],
-                                id:targetV
+                                ...state.Game.SceneList[vID].Symbols[vKEY],
+                                id:targetV,
+                                Corect:{
+                                    ...state.Game.SceneList[vID].Symbols[vKEY].Corect,
+                                    Id:Id
+                                }
                             }
                         },
                     }
@@ -221,9 +249,9 @@ function InputSymPayT(state, action){
                         Symbols:{
                             ...state.Game.SceneList[vID].Symbols,
                             [vKEY]:{
-                                ...state.Game.SceneList[vID].Symbols[[vKEY]],
+                                ...state.Game.SceneList[vID].Symbols[vKEY],
                                 Paytable:{
-                                    ...state.Game.SceneList[vID].Symbols[[vKEY]].Paytable,
+                                    ...state.Game.SceneList[vID].Symbols[vKEY].Paytable,
                                     [vKEY1]:num
                                 }
                             }
@@ -290,7 +318,6 @@ function InputSymSpec(state, action){
     let targetV=!state.Game.SceneList[vID].Symbols[vKEY].Special[vKEY1]
     
     
-    
         return {
             ...state,
             Game:{
@@ -344,9 +371,9 @@ function InputSymReel(state, action){
                         Symbols:{
                             ...state.Game.SceneList[vID].Symbols,
                             [vKEY]:{
-                                ...state.Game.SceneList[vID].Symbols[[vKEY]],
+                                ...state.Game.SceneList[vID].Symbols[vKEY],
                                 Reelstrip:{
-                                    ...state.Game.SceneList[vID].Symbols[[vKEY]].Reelstrip,
+                                    ...state.Game.SceneList[vID].Symbols[vKEY].Reelstrip,
                                     [vKEY1]:num
                                 }
                             }
