@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/slotemaster.online/static/css/main.8ec1b43f.chunk.css",
-    "main.js": "/slotemaster.online/static/js/main.e457269c.chunk.js",
-    "main.js.map": "/slotemaster.online/static/js/main.e457269c.chunk.js.map",
-    "runtime-main.js": "/slotemaster.online/static/js/runtime-main.30da88d6.js",
-    "runtime-main.js.map": "/slotemaster.online/static/js/runtime-main.30da88d6.js.map",
-    "static/js/2.8e339e53.chunk.js": "/slotemaster.online/static/js/2.8e339e53.chunk.js",
-    "static/js/2.8e339e53.chunk.js.map": "/slotemaster.online/static/js/2.8e339e53.chunk.js.map",
-    "static/js/3.a2061b17.chunk.js": "/slotemaster.online/static/js/3.a2061b17.chunk.js",
-    "static/js/3.a2061b17.chunk.js.map": "/slotemaster.online/static/js/3.a2061b17.chunk.js.map",
+    "main.css": "/slotemaster.online/static/css/main.24d0b67b.chunk.css",
+    "main.js": "/slotemaster.online/static/js/main.df7f93ec.chunk.js",
+    "main.js.map": "/slotemaster.online/static/js/main.df7f93ec.chunk.js.map",
+    "runtime-main.js": "/slotemaster.online/static/js/runtime-main.4a1f45ba.js",
+    "runtime-main.js.map": "/slotemaster.online/static/js/runtime-main.4a1f45ba.js.map",
+    "static/css/2.150d169a.chunk.css": "/slotemaster.online/static/css/2.150d169a.chunk.css",
+    "static/js/2.c6044f54.chunk.js": "/slotemaster.online/static/js/2.c6044f54.chunk.js",
+    "static/js/2.c6044f54.chunk.js.map": "/slotemaster.online/static/js/2.c6044f54.chunk.js.map",
+    "static/js/3.72913fda.chunk.js": "/slotemaster.online/static/js/3.72913fda.chunk.js",
+    "static/js/3.72913fda.chunk.js.map": "/slotemaster.online/static/js/3.72913fda.chunk.js.map",
     "index.html": "/slotemaster.online/index.html",
-    "static/css/main.8ec1b43f.chunk.css.map": "/slotemaster.online/static/css/main.8ec1b43f.chunk.css.map",
-    "static/js/2.8e339e53.chunk.js.LICENSE.txt": "/slotemaster.online/static/js/2.8e339e53.chunk.js.LICENSE.txt"
+    "static/css/2.150d169a.chunk.css.map": "/slotemaster.online/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.24d0b67b.chunk.css.map": "/slotemaster.online/static/css/main.24d0b67b.chunk.css.map",
+    "static/js/2.c6044f54.chunk.js.LICENSE.txt": "/slotemaster.online/static/js/2.c6044f54.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.30da88d6.js",
-    "static/js/2.8e339e53.chunk.js",
-    "static/css/main.8ec1b43f.chunk.css",
-    "static/js/main.e457269c.chunk.js"
+    "static/js/runtime-main.4a1f45ba.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.c6044f54.chunk.js",
+    "static/css/main.24d0b67b.chunk.css",
+    "static/js/main.df7f93ec.chunk.js"
   ]
 }
